@@ -16,6 +16,8 @@ Your answer: JSX is a place inside a file that mixes HTML and JavaScript. In ord
 
 Researched answer: JSX stands for JavaScript syntax extension and allows developers to write HTML elements in JavaScript which converts HTML tags to react elements. HTML is its own standard markup language that was designed for web browsers and JSX allows HTML to be written inside of react by using JavaScript.
 
+more content: example of JSX and HTML
+
 2. What is yarn? What file(s) are modified when you run the command yarn in your terminal?
 
 From Developer Aleja
@@ -23,6 +25,8 @@ From Developer Aleja
 Your answer: yarn is a package manager, the files that are modified when the command yarn is run in the terminal are the yarn.lock (?? not very sure about this)
 
 Researched answer: yarn was installed by Facebook and it is a package manager that installs dependencies, manage the dependencies and allows us to execute the tests
+
+more content: discuss `yarn add jest`
 
 3. What is the difference between state values and props in React?
 
@@ -32,6 +36,8 @@ Your answer: State values are stored in the state, while props are are things th
 
 Researched answer:In React, both state and props are used to manage and pass data, but they serve distinct purposes. State is internal to a component and represents mutable data that the component can manage and change. It is typically used for data that can be modified within the component, often in response to user interactions or events. In contrast, props are external and immutable data passed to a component from its parent. They are used to configure and customize a component's behavior and appearance. While state allows a component to manage its own data, props facilitate data flow and communication between parent and child components in a React application.
 
+more content: share a basic react functional component with state and props
+
 4. What is the DOM?
 
 From Developer Mal
@@ -40,6 +46,8 @@ Your answer: DOM is used to update the webpage in React. DOM events are user int
 
 Researched answer: DOM stands for Document Object Module and represents the HTML structure on the webpage.
 
+more content: code snippet example that shows an interaction such as typing in an input field
+
 5. STRETCH: Which is the difference between a div tag and a span tag?
 
 From Developer Louis
@@ -47,6 +55,8 @@ From Developer Louis
 Your answer: im not to sure tbh
 
 Researched answer: a div tag creates a block level element, and a span tag wraps around inline elements like text, links, and images
+
+more content: more in depth explanation with an example
 
 ## Looking Ahead: Terms for Next Week
 
