@@ -176,14 +176,14 @@ describe("cummulativeSum", () =>{
     const accountTransactions3 = []
 //     // Expected output: []
 
-    // correction needed for expected output
-    // expect(cummulativeSum(accountTransactions1)).toEqual([100, 83, 60, 51])
-    // expect(cummulativeSum(accountTransactions2)).toEqual([250, 161, 261, 165])
-    // expect(cummulativeSum(accountTransactions3)).toEqual([])
+// expect(cummulativeSum(accountTransactions1)).toEqual([100, -17, -23, -9])
+// expect(cummulativeSum(accountTransactions2)).toEqual([250, -89, 100, -96])
+// expect(cummulativeSum(accountTransactions3)).toEqual([])
 
-    // *** Additional Notes ***
-    expect(cummulativeSum(accountTransactions1)).toEqual([100, -17, -23, -9])
-    expect(cummulativeSum(accountTransactions2)).toEqual([250, -89, 100, -96])
+// *** Additional Notes ***
+    // correction needed for expected output
+    expect(cummulativeSum(accountTransactions1)).toEqual([100, 83, 60, 51])
+    expect(cummulativeSum(accountTransactions2)).toEqual([250, 161, 261, 165])
     expect(cummulativeSum(accountTransactions3)).toEqual([])
   })
 })
@@ -269,18 +269,80 @@ describe("cummulativeSum", () =>{
 
 // The first value is the culprit. It needs to be the same as the original array. Approach that will be taken: conditional statement to assign the first value from the original array as the first value of the new array.
 
-const cummulativeSum = (array) => {
-  return array.map((value, index, array) => {
-    // the first iteration will be at the index of 0, therefore return the value
-    if(array[0]) {
-      return value
-    } else {
-    // for all other indexes perform this action
-    return array[index - 0] + array[index]
-    }
-  })
-}
+// const cummulativeSum = (array) => {
+//   return array.map((value, index, array) => {
+//     // the first iteration will be at the index of 0, therefore return the value
+//     if(array[0]) {
+//       return value
+//     } else {
+//     // for all other indexes perform this action
+//     return array[index - 0] + array[index]
+//     }
+//   })
+// }
 
 // output: 
+// - Expected  - 3
+// + Received  + 3
+
+// Array [
+//   100,
+//   -   83,
+//   -   60,
+//   -   51,
+//   +   -17,
+//   +   -23,
+//   +   -9,
+// ]
+
+// Looks like we are getting back the original array. Need to update the logic to add the values of previous two indexes
+// const cummulativeSum = (array) => {
+//   return array.map((value, index, array) => {
+//     // // the first iteration will be at the index of 0, therefore return the value
+//     if(index === 0) {
+//       return value
+//     } else {
+//     // for all other indexes perform this action
+//     return array[index - 1] + array[index]
+//     }
+//   })
+// }
+
+// output:
+// - Expected  - 2
+//     + Received  + 2
+
+//       Array [
+//         100,
+//         83,   <---- 100 - 17
+//     -   60,  
+//     -   51,
+//     +   -40,  <---- -17 + -23
+//     +   -32,  <---- -23 + -9
+//       ]
+
+// Error due to adding the values in the original array not the sums from the new array
+
+// Placing pseudocode with each line of code in the function expression
+// Need to store the values in a different array and use map to create the sums that will be push into a new array
+const cummulativeSum = (array) => {
+  // create a variable to store the sum of the values from the previous index and the current index in a new array, starting value will be 0
+  let sumOfValues = 0
+
+  // create a new array to store the sums, which start as empty
+  let sumArray = []
+
+  // use map() to iterate through values in the array
+  // add each value to the previous sum
+  // push that sum into the new array
+  array.map((value) => {
+    sumOfValues += value
+    sumArray.push(sumOfValues)
+  })
+
+  // return the new array outside of the iteration
+  return sumArray
+}
+  // Pass
   // cummulativeSum
   // ✓ returns an array of the accumulating sum
